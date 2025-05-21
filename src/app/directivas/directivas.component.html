@@ -1,0 +1,58 @@
+<div style="padding-left: 35%; padding-bottom: 15%;">
+<p>directivas works!</p>
+
+<br><br>
+<h2>Manejo de fomulario</h2>
+<table>
+    <tr>
+        <td>Edad</td>
+        <td><input type="number" name="" id="" [(ngModel)]="edad"></td>
+    </tr>
+    <tr>
+        <td>Puesto</td>
+        <td><select name="" id="" [(ngModel)]="puesto" >
+            <option value="0">Seleccione Uno</option>
+            <option value="Gerente">Gerente</option>
+            <option value="Cajero">Cajero</option>
+        </select></td>
+    </tr>
+    <tr>
+        <td>Sueldo</td>
+        <td><input type="numer" name="" id="" [(ngModel)]="sueldo"></td>
+    </tr>
+    <tr>
+        <td>Genero:</td>
+        <td>Hombre:<input type="radio" name="genero" value="Hombre" id="" [(ngModel)]="genero">
+            <br>
+            Mujer:<input type="radio" name="genero" value="Mujer" id="" [(ngModel)]="genero"></td>
+    </tr>
+</table>
+
+<br>
+Edad escrita: {{edad}} <br>
+Puesto selecionado: {{puesto}} <br>
+Sueldo deseado: {{sueldo}} <br>
+Genero: {{genero}} <br>
+
+<br><br>
+<h2>IF</h2>
+
+Valor: <input type="number" [(ngModel)]="valor"><br>
+{{valor}}
+
+<br><br>
+@if(valor==0){
+    <input type="button" value="Salir">
+}
+
+<br><br>
+
+@if (puesto=="Gerente"&& edad=="21") {
+    <span>Bienvenido gerente</span>
+}@else {
+    <span>No erees Gerente o no tienes 21 años</span>
+}
+
+
+
+</div>

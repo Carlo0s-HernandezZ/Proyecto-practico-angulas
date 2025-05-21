@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { EncabezadoComponent } from "./encabezado/encabezado.component";
+import { EncabezadoComponent } from './encabezado/encabezado.component';
 
 @Component({
-  //identificador de componentes para hacer utilizado en un archivo html
+  //Identificador de compoenetes  para hacer utilizado un archivo html
   selector: 'app-root',
-  //invocacion o adiccion de librerias, modulos y componentes a nuestro proyecto
+  //Invocaion de libreriras o acciones de librerias o componentes a nuestros proyectos  
   imports: [RouterOutlet, EncabezadoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'ejemplo6D';
+  title = 'ejemploD';
 }
