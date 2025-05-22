@@ -47,12 +47,61 @@ Valor: <input type="number" [(ngModel)]="valor"><br>
 
 <br><br>
 
-@if (puesto=="Gerente"&& edad=="21") {
+@if (puesto=="Gerente" && edad=="21") {<!-- If estructura de datos para decisines -->
     <span>Bienvenido gerente</span>
-}@else {
-    <span>No erees Gerente o no tienes 21 años</span>
-}
-
-
+    <div>
+        Fecha <input type="date" name="" id=""><br>
+        Hora <input type="time" name="" id=""><br>
+        Email <input type="email" name="" id=""><br>
+        Comentario <textarea type="id" name="" id="" cols="30" rows="10"></textarea>
+    </div>
+    
+}<!-- Fin del if -->@else {
+    <span>No eres Gerente o no tienes 21 años</span>
+}<!-- Fin del else -->
 
 </div>
+
+<hr>
+<h2>For</h2>
+
+@for (frut of frutas; track frut){<!-- incia con la posicion 0 por los [arreglos], -cuando uuna lista esta vacia apunta a null- -->
+
+    <li>{{frut}}</li>
+
+}<!-- Fin del for -->@empty {
+    <li>Colección vacias</li>
+}<!-- Fin del empty -->
+
+<hr>
+
+<!-- 
+<h2>For Viejo</h2>
+
+<ul *ngFor="let ver of verduras">For version vieja con *ngFor
+    <li>{{ver}}</li>
+</ul> -->
+
+<table border="3" >
+<tr style="background-color: aqua;">
+    <th>Nombre</th>
+    <th>Tipo</th>
+    <th>Raza</th>
+    <th>Sexo</th>
+    <th>Precio</th>
+    <th>Talla</th>
+</tr>    
+@for (pro of producto; track pro.Nombre) {<!-- Como es una notacion de objetos json se debe de respeta la notacion por eso se declara de forma diferente-->
+    <tr >
+        <td >{{ pro.Nombre }}</td>
+        <td>{{ pro.tipo }}</td>
+        <td>{{ pro.raza }}</td>
+        <td>{{ pro.sexo }}</td>
+        <td align="center">{{ pro.precio }}</td>
+        <td>{{ pro.talla }}</td>
+    </tr>
+    
+}@empty {
+    <span>Colección vacía</span>
+}
+</table>

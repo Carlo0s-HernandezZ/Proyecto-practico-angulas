@@ -17,7 +17,16 @@ export class DirectivasComponent {
   sueldo="";
   genero="";
   nombre="";
+  frutas=["banana","fresas","Apple","Aguacate"];
+  verduras=["Ejote","Zanahoria","Chayote","Betabel"];
 
   //para funciones
+
+  producto=[/* Arreglo de tipo json */
+   {Nombre:"FITO ",tipo:"MAMIFERO  TERR",raza:"Chihuahua",sexo:"Macho",precio:"500",talla:"CH"},  
+   {Nombre:"Lukas",tipo:"Mamifero Terr",raza:"Doberman",sexo:"Macho",precio:"1500",talla:"M"},  
+   {Nombre:"Gordo",tipo:"Marino",raza:"Japone",sexo:"Hembra",precio:"50",talla:"CH"},  
+   {Nombre:"Petty",tipo:"MamiferoOviparo",raza:"Oviparo",sexo:"Macho",precio:"150000",talla:"M"}  
+  ]
 
 }
