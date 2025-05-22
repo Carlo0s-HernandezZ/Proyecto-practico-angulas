@@ -1,9 +1,10 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-directivas',
-  imports: [FormsModule],
+  imports: [FormsModule,CommonModule],
   templateUrl: './directivas.component.html',
   styleUrl: './directivas.component.css'
 })
@@ -18,7 +19,7 @@ export class DirectivasComponent {
   genero="";
   nombre="";
   frutas=["banana","fresas","Apple","Aguacate"];
-  verduras=["Ejote","Zanahoria","Chayote","Betabel"];
+  verduras=["Ejote","Zanahoria","Chayote","Papas"];
 
   //para funciones
 

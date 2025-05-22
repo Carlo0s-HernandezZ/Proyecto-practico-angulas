@@ -105,3 +105,9 @@ Valor: <input type="number" [(ngModel)]="valor"><br>
     <span>Colección vacía</span>
 }
 </table>
+
+<br><br>
+
+<ul *mgfor="let ver of verduras">
+    <li>{{ver}}</li>
+</ul>
