@@ -1,0 +1,51 @@
+<div style="padding-left: 20%;">
+    <h2>Productos</h2>
+
+        <table>
+            <tr>
+                <td colspan="2"><img src="/public/imagen/Nofot.png" alt="" width="150%" height="150%"></td>
+            </tr>
+            <tr>
+                <td>CODIGO</td>
+                <td><input type="number" name="" id="" [(ngModel)]="producto.codigo"></td>
+            </tr>
+            <tr>
+                <td>NOMBRE</td>
+                <td><input type="text" name="" id="" [(ngModel)]="producto.nombre"></td>
+            </tr>
+            <tr>
+                <td>DESCRIPCION</td>
+                <td><input type="text" name="" id="" [(ngModel)]="producto.descripcion"></td>
+            </tr>
+            <tr>
+                <td>EXISTENCIA</td>
+                <td><input type="number" name="" id="" [(ngModel)]="producto.existencia"></td>
+            </tr>
+            <tr>
+                <td>PRECIO</td>
+                <td><input type="number" name="" id="" [(ngModel)]="producto.precio"></td>
+            </tr>
+
+                <tr>
+                    <td>Foto</td>
+                    <td><input type="file" name="" id=""></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="button" value="Guardar" (click)="guardarProducto()">
+                        <input type="button" value="Modificar">
+                        <input type="button" value="Eliminar">
+                        <input type="button" value="Ver Lista">
+                    </td>
+                </tr>
+
+        </table>
+
+        <br><br>
+
+
+
+
+
+
+</div>

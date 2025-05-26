@@ -111,3 +111,33 @@ Valor: <input type="number" [(ngModel)]="valor"><br>
 <ul *mgfor="let ver of verduras">
     <li>{{ver}}</li>
 </ul>
+<br><br><hr><br><br>
+Cuatrimestre cursado: <input type="text" [(ngModel)]="cuatri"> <br>
+
+@switch (cuatri) {
+
+    @case ("1") {
+            <span>Esata en pañales</span>
+    }
+    @case ("2") {
+            <span>Empiezas a caminar</span>
+    }
+    @case ("3") {
+            <span>Empeizas aCorrer</span>
+    }
+    @case ("4") { 
+            <span>Ya corres y saltas</span>
+    }
+    @case ("5") {
+            <span>Eres todo un programador</span>
+    }
+    @case ("6") {
+            <span>Eres un master</span>
+    }
+    @case ("7") {
+            <span>Casi chatgpt</span>
+    }
+    @default{
+            <span>opcion incorrecta o escribe una</span>
+    }
+}

@@ -20,7 +20,7 @@ export class DirectivasComponent {
   nombre="";
   frutas=["banana","fresas","Apple","Aguacate"];
   verduras=["Ejote","Zanahoria","Chayote","Papas"];
-
+  cuatri="";
   //para funciones
 
   producto=[/* Arreglo de tipo json */
