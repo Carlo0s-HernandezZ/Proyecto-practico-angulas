@@ -21,19 +21,30 @@ producto={
 //definir las funciones o metodos
 
 guardarProducto(){
+/* Forma correcta para validar 
+Se revisan campos vacios*/
 /*   if(this.producto.codigo=="" ||
     this.producto.nombre==""|| 
     this.producto.descripcion=="" || 
     this.producto.existencia=="" ||
     this.producto.precio==""){
         alert("Todos los campos deben estar llenos paps")
-  } */
- 
-    if(){
-        alert("Todos los campos deben estar llenos paps");
-    }else{
+  }else{
      alert("voy a guardar el producto");
     this.limpiar();
+  }*/
+ /* SE esta revisando campos llenos, por eso es el diferente a  */
+    if(this.producto.codigo !="" &&
+      this.producto.descripcion !="" &&
+      this.producto.existencia !="" &&
+      this.producto.nombre !="" &&
+      this.producto.precio !=""
+    ){
+        alert("voy a guardar el producto");
+        this.limpiar();
+    }else{
+     alert("Todos los campos deben estar llenos paps");
+    
   }
 
 }
