@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DirectivasComponent } from './directivas.component';
 
 describe('DirectivasComponent', () => {

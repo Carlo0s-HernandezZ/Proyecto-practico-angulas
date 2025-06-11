@@ -28,14 +28,14 @@
 
                 <tr>
                     <td>FOTO</td>
-                    <td><input type="file" name="" id=""></td>
+                    <td><input type="file" name="imagen" id="imagen" accept="image/png, image/jpeg, image/gif" (change)="fotoseleccionada($event)"></td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         <input type="button" value="Guardar" (click)="guardarProducto()">
                         <input type="button" value="Modificar">
                         <input type="button" value="Eliminar">
-                        <input type="button" value="Ver Lista">
+                        <input type="button" value="Ver Lista" (click)="verLista();">
                     </td>
                 </tr>
 
@@ -43,7 +43,24 @@
 
         <br><br>
 
-
+        <table>
+            <tr>
+                <th>CODIGO</th>
+                <th>NOMBRE</th>
+                <th>DESCRIPCION</th>
+                <th>EXISTENCIA</th>
+                <th>PRECIO</th>
+            </tr>
+@for(prod of productos; track prod.nombre){
+                <td>{{prod.codigo}}</td>
+                <td>{{prod.nombre}}</td>
+                <td>{{prod.descripcion}}</td>
+                <td>{{prod.existencia}}</td>
+                <td>{{prod.precio}}</td>
+            }@empty {
+                        <span>No hay información que mostrar</span>
+                    }
+        </table>
 
 
 
