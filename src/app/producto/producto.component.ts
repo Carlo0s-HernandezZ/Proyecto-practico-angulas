@@ -59,7 +59,6 @@ Se revisan campos vacios*/
       this.servicioProd.guardar(this.producto.codigo,
         this.producto.descripcion,
         this.producto.nombre,
-        this.producto.descripcion,
         this.producto.existencia,
         this.producto.precio,
         this.imagen
