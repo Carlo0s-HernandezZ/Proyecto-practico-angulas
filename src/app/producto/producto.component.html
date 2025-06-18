@@ -3,7 +3,7 @@
 
         <table>
             <tr>
-                <td colspan="2"><img src="/public/imagen/Nofot.png" alt="" width="150%" height="150%"></td>
+                <td colspan="2"><img src="/imagen/Nofot.png" alt="" width="50%" height="50%"></td>
             </tr>
             <tr>
                 <td>CODIGO</td>
@@ -50,6 +50,7 @@
                 <th>DESCRIPCION</th>
                 <th>EXISTENCIA</th>
                 <th>PRECIO</th>
+                <th>FOTO</th>
             </tr>
 @for(prod of productos; track prod.nombre){
                 <td>{{prod.codigo}}</td>
@@ -57,6 +58,7 @@
                 <td>{{prod.descripcion}}</td>
                 <td>{{prod.existencia}}</td>
                 <td>{{prod.precio}}</td>
+                <td><img src={{prod.imgurl}} alt="" height="25%" width="25%"></td>
             }@empty {
                         <span>No hay información que mostrar</span>
                     }

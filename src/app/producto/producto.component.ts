@@ -20,7 +20,8 @@ producto={
   imgurl:""
 }
 
-imagen:any;
+/* imagen:any; */
+ imagen: File | null = null;  
 productos:any;//variable global, puede consultar cualquier cosa
 
 /* Se crea el metodo especial llamado consrtructor */
@@ -29,76 +30,60 @@ constructor(private servicioProd:ProductoService){}
 fotoseleccionada(event: any): void{
   if(event.target.file && event.target.file[0]){//revisa qaue si o si sea un archivo
     this.imagen =<File>event.target.files[0];//hace un casteo es una conversion donde se obliga que lo que sea que esta llegando al metodo se transforme a tipo file y se mande a la variable imagen
+    console.log("imagen seleccionada:", this.imagen);
   }
 }//cierre de metodo fotoseleccionada
 
 
 //definir las funciones o metodos
 
-guardarProducto(){
-/* Forma correcta para validar 
-Se revisan campos vacios*/
-/*   if(this.producto.codigo=="" ||
-    this.producto.nombre==""|| 
-    this.producto.descripcion=="" || 
-    this.producto.existencia=="" ||
-    this.producto.precio==""){
-        alert("Todos los campos deben estar llenos paps")
-  }else{
-     alert("voy a guardar el producto");
-    this.limpiar();
-  }*/
- /* SE esta revisando campos llenos, por eso es el diferente a  */
-    if(this.producto.codigo !="" &&
-      this.producto.descripcion !="" &&
-      this.producto.existencia !="" &&
-      this.producto.nombre !="" &&
-      this.producto.precio !=""
-    ){
+guardarProducto() {
+    if (
+      this.producto.codigo !== "" &&
+      this.producto.nombre !== "" &&
+      this.producto.descripcion !== "" &&
+      this.producto.existencia !== "" &&
+      this.producto.precio !== ""
+    ) {
+      alert("Voy a guardar el producto");
 
-      this.servicioProd.guardar(this.producto.codigo,
-        this.producto.descripcion,
-        this.producto.nombre,
-        this.producto.existencia,
-        this.producto.precio,
-        this.imagen
-      ).subscribe(
-
-        res=>{
-        alert("voy a guardar el producto");
-        this.limpiar();
-        console.log(res);
-
-
-        },//cierre de res
-        err=>{
-          alert(err.error.erres[0].msg);//muestra el error en pantalla
-          console.log(err.error.erres[0].msg);
-        }//cierre de err
-      ); //cierre de subcribe
-        
-        alert("voy a guardar el producto");
-        this.limpiar();
-    }//cierre de if
-    else{
-     alert("Todos los  deben estar llenos paps");
-    
-  }//cierre de else
-
-}//cierre de funcion guardar
-
-verLista(){
-
-  this.productos = this.servicioProd.consultartodo().subscribe(
-  res=>{
-    console.log(res.msj);
-    this.productos = res.pro;
-  },
-  err=>{
-    console.log(err);
+      this.servicioProd
+        .guardar(
+          this.producto.codigo,
+          this.producto.nombre,
+          this.producto.descripcion,
+          this.producto.existencia,
+          this.producto.precio,
+          this.imagen!
+        )
+        .subscribe({
+          next: (res) => {
+            console.log("Producto guardado:", res);
+            alert(res.msj); 
+            this.limpiar();
+            this.verLista();
+          },
+          error: (err) => {
+            console.error("Error al guardar:", err);
+            alert("Error al guardar el producto");
+          }
+        });
+    } else {
+      alert("Todos los campos deben de estar llenos");
+    }
   }
-  ); //variable llena con un arreglo json
-}//Fin de ver Lista
+
+  verLista() {
+    this.servicioProd.consultartodo().subscribe({
+      next: (res) => {
+        console.log("Productos consultados:", res);
+        this.productos = res.pro;
+      },
+      error: (err) => {
+        console.error("Error al consultar productos:", err);
+      }
+    });
+  }// cierre de ver lista 
 
 limpiar(){
   this.producto.codigo="";
@@ -106,6 +91,7 @@ limpiar(){
   this.producto.existencia="";
   this.producto.nombre="";
   this.producto.precio="";
+   this.imagen = null;
 }
 
 }
