@@ -3,7 +3,13 @@
 
         <table>
             <tr>
-                <td colspan="2"><img src="/imagen/Nofot.png" alt="" width="50%" height="50%"></td>
+                @if(producto.imgurl){
+                     <td colspan="2"><img src="{{producto.imgurl}}" alt="" width="50%" height="50%"></td>
+
+                }@else {
+                    <td colspan="2"><img src="/imagen/Nofot.png" alt="" width="50%" height="50%"></td>
+
+                }
             </tr>
             <tr>
                 <td>CODIGO</td>
@@ -33,9 +39,11 @@
                 <tr>
                     <td colspan="2">
                         <input type="button" value="Guardar" (click)="guardarProducto()">
-                        <input type="button" value="Modificar">
-                        <input type="button" value="Eliminar">
+                        <input type="button" value="Modificar" (click)="modificarProd()">
+                        <input type="button" value="Eliminar" (click)="eliminarProd()">
                         <input type="button" value="Ver Lista" (click)="verLista();">
+                        <input type="button" value="Modificar Imagen" (click)="modificarImagen();">
+                        <input type="button" value=" consultar" (click)="consultarProd();">
                     </td>
                 </tr>
 
@@ -53,12 +61,14 @@
                 <th>FOTO</th>
             </tr>
 @for(prod of productos; track prod.nombre){
+    <tr>
                 <td>{{prod.codigo}}</td>
                 <td>{{prod.nombre}}</td>
                 <td>{{prod.descripcion}}</td>
                 <td>{{prod.existencia}}</td>
                 <td>{{prod.precio}}</td>
                 <td><img src={{prod.imgurl}} alt="" height="25%" width="25%"></td>
+    </tr>
             }@empty {
                         <span>No hay información que mostrar</span>
                     }

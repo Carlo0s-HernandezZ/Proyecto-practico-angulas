@@ -38,5 +38,22 @@ guardar(codigo:string,
   return this.http.get<any>(this.url);
  }
 
+ consultar(nombre:String){
+  return this.http.get<any>(this.url+"/nombre/"+nombre);
+ }//cierre de consulta
+
+ eliminar(nombre:String){
+  return this.http.get<any>(this.url+"/borrar/"+nombre)
+ }//cierre de eliminar
+
+ modificar(producto:object) {
+  return this.http.put<any>(this.url,producto);
+ }//cierre modificar
+
+ modificarimagen(imagen:File){
+  const fd = new FormData();
+  fd.append("imagen", imagen);
+  return this.http.put<any>(this.url+"/imagen/", fd);
+ }
 
 }

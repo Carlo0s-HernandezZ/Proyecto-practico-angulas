@@ -21,7 +21,7 @@ producto={
 }
 
 /* imagen:any; */
- imagen: File | null = null;  
+ imagen: any;  
 productos:any;//variable global, puede consultar cualquier cosa
 
 /* Se crea el metodo especial llamado consrtructor */
@@ -47,16 +47,14 @@ guardarProducto() {
     ) {
       alert("Voy a guardar el producto");
 
-      this.servicioProd
-        .guardar(
+      this.servicioProd.guardar(
           this.producto.codigo,
           this.producto.nombre,
           this.producto.descripcion,
           this.producto.existencia,
           this.producto.precio,
           this.imagen!
-        )
-        .subscribe({
+        ).subscribe({
           next: (res) => {
             console.log("Producto guardado:", res);
             alert(res.msj); 
@@ -84,6 +82,63 @@ guardarProducto() {
       }
     });
   }// cierre de ver lista 
+
+  consultarProd(){
+    this.servicioProd.consultar(this.producto.nombre).subscribe(
+      res=>{
+        this.producto.codigo=res.producto.codigo;
+        this.producto.nombre=res.producto.nombre;
+        this.producto.descripcion=res.producto.descripcion;
+        this.producto.existencia=res.producto.existencia;
+        this.producto.precio=res.producto.precio;
+        this.producto.imgurl=res.producto.imgurl;
+      },
+      err=>{
+        alert("producto no encontrado");
+        this.producto.codigo="";
+        this.producto.descripcion="";
+        this.producto.existencia="";
+        this.producto.precio="";
+        this.producto.imgurl="";
+      }
+    )
+  }//cierre de consultar producto
+
+eliminarProd() {
+  this.servicioProd.eliminar(this.producto.nombre).subscribe(
+    res => {
+      this.limpiar();
+      alert("Producto eliminado");
+    },
+    err => {
+      alert("Producto no eliminado");
+    }
+  );
+}
+
+modificarProd() {
+  this.servicioProd.modificar(this.producto).subscribe(
+    res => {
+      this.limpiar();
+      alert("Producto modificado");
+    },
+    err => {
+      alert("Error al modificar el producto");
+    }
+  );
+}//cierre de modificar
+
+modificarImagen(){
+  this.servicioProd.modificarimagen(this.imagen).subscribe(
+    res=>{
+      alert("Imagen modificad");
+      this.limpiar();
+    },
+    err=>{
+      alert("Error al moficar");
+    }
+  );
+}//cierre de moficar imagen
 
 limpiar(){
   this.producto.codigo="";
