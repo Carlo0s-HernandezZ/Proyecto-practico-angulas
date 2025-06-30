@@ -2,7 +2,6 @@
 <nav>
     <ul>
         <li><a href="" routerLink="inicio">Inicio</a></li>
-        <li><a href="" routerLink="iniciosesion">Inicio Sesion</a></li>
         @if(servicioIniSesion.eslogeado()){
             <li><a href="" routerLink="directivas">Directivas</a></li>
             <li><a href="" routerLink="empleados">Empleados</a></li>
@@ -10,6 +9,7 @@
             <li><a href="" (click)="servicioIniSesion.cerrarSesion()">Cerrar Sesion</a></li>
             
         }@else {
+            <li><a href="" routerLink="iniciosesion">Inicio Sesion</a></li>
             
         }
     </ul>

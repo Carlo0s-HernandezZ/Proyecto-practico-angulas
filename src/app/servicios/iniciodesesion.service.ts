@@ -38,6 +38,10 @@ return true;
 
   }
 
+  getToken(){
+    return localStorage.getItem("token");
+  }
+
   tuperfil(){
     //saber cual es el puest del empleado
     //return localStorage.getItem("perfil");//guarda el puesto del empleado
