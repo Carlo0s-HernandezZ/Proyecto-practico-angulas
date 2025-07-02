@@ -1,5 +1,5 @@
-/* import { Injectable } from '@angular/core';
-import { HttpHandler, HttpRequest } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { IniciodesesionService } from './iniciodesesion.service';
 
 @Injectable({
@@ -7,18 +7,20 @@ import { IniciodesesionService } from './iniciodesesion.service';
 })
 export class TokenInterceptorServiceService {
 
-  constructor(private servicioInicioSesion:IniciodesesionService) { }
+  constructor(private servicioInicioSesion: IniciodesesionService) { }
 
   intercept(req: HttpRequest<any>, next:HttpHandler){
      const tokenReq = req.clone({
-        Authorization :'' + this.servicioInicioSesion.getToken()
+      setHeaders:{
+        Authorization:'' + this.servicioInicioSesion.getToken()
+      }
      });
      return next.handle(tokenReq);
   }
 }
- */
 
-import { Injectable } from '@angular/core';
+
+/* import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IniciodesesionService } from './iniciodesesion.service';
@@ -41,3 +43,4 @@ export class TokenInterceptorServiceService implements HttpInterceptor {
     return next.handle(tokenReq);
   }
 }
+ */

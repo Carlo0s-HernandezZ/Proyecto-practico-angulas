@@ -28,9 +28,9 @@ productos:any;//variable global, puede consultar cualquier cosa
 constructor(private servicioProd:ProductoService){}
 
 fotoseleccionada(event: any): void{
-  if(event.target.file && event.target.file[0]){//revisa qaue si o si sea un archivo
+  if(event.target.files && event.target.files[0]){//revisa qaue si o si sea un archivo
     this.imagen =<File>event.target.files[0];//hace un casteo es una conversion donde se obliga que lo que sea que esta llegando al metodo se transforme a tipo file y se mande a la variable imagen
-    console.log("imagen seleccionada:", this.imagen);
+    alert("imagen seleccionada:" );
   }
 }//cierre de metodo fotoseleccionada
 
@@ -53,13 +53,14 @@ guardarProducto() {
           this.producto.descripcion,
           this.producto.existencia,
           this.producto.precio,
-          this.imagen!
+          this.imagen
         ).subscribe({
           next: (res) => {
             console.log("Producto guardado:", res);
             alert(res.msj); 
             this.limpiar();
             this.verLista();
+            
           },
           error: (err) => {
             console.error("Error al guardar:", err);
@@ -109,9 +110,11 @@ eliminarProd() {
     res => {
       this.limpiar();
       alert("Producto eliminado");
+      this.verLista();
     },
     err => {
       alert("Producto no eliminado");
+      
     }
   );
 }
@@ -121,21 +124,25 @@ modificarProd() {
     res => {
       this.limpiar();
       alert("Producto modificado");
+      this.verLista();
     },
     err => {
       alert("Error al modificar el producto");
+      
     }
   );
 }//cierre de modificar
 
 modificarImagen(){
-  this.servicioProd.modificarimagen(this.imagen).subscribe(
+  this.servicioProd.modificarimagen(this.imagen,this.producto.nombre).subscribe(
     res=>{
       alert("Imagen modificad");
       this.limpiar();
+      this.verLista();
     },
     err=>{
       alert("Error al moficar");
+      
     }
   );
 }//cierre de moficar imagen

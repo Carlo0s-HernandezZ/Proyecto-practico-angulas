@@ -50,10 +50,11 @@ guardar(codigo:string,
   return this.http.put<any>(this.url,producto);
  }//cierre modificar
 
- modificarimagen(imagen:File){
+ modificarimagen(imagen:File,nombre:string){
   const fd = new FormData();
   fd.append("imagen", imagen);
-  return this.http.put<any>(this.url+"/imagen/", fd);
+  fd.append("nombre", nombre);
+  return this.http.put<any>(this.url+"/imagen/",fd);
  }
 
 }
