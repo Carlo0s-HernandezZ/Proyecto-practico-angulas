@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { empty, EmptyError, isEmpty } from 'rxjs';
+import { empty, EmptyError, from, isEmpty } from 'rxjs';
 import { ProductoService } from '../servicios/producto.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { ProductoService } from '../servicios/producto.service';
   templateUrl: './producto.component.html',
   styleUrl: './producto.component.css'
 })
-export class ProductoComponent {
+export class ProductoComponent implements OnInit{ //implements sirve para usar una interfaz
 //DEfinir los atributos
 producto={
   codigo:"",
@@ -26,6 +26,10 @@ productos:any;//variable global, puede consultar cualquier cosa
 
 /* Se crea el metodo especial llamado consrtructor */
 constructor(private servicioProd:ProductoService){}
+  ngOnInit(): void {//va a ejecutar las tareas dentro de las llaves en el instante que se lea el componente
+    this.verLista();
+    /* throw new Error('Method not implemented.'); */
+  }
 
 fotoseleccionada(event: any): void{
   if(event.target.files && event.target.files[0]){//revisa qaue si o si sea un archivo
