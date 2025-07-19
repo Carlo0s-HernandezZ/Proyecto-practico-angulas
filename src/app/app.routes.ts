@@ -16,5 +16,6 @@ export const routes: Routes = [
     {path:"directivas", component:DirectivasComponent, canActivate:[iniciosesionGuard]},
     {path:"empleados", component:EmpleadoComponent, canActivate:[iniciosesionGuard]},
     {path:"iniciosesion", component:IniciosesionComponent},
-    {path:"producto",component:ProductoComponent, canActivate:[iniciosesionGuard]}
+    {path:"producto",component:ProductoComponent, canActivate:[iniciosesionGuard]},
+    {path:"empleado",component:EmpleadoComponent, canActivate:[iniciosesionGuard]}
 ];

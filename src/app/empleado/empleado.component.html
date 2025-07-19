@@ -1,1 +1,64 @@
-<p>empleado works!</p>
+<div style="padding-left: 20%;">
+    <h2>Usuarios</h2>
+
+        <table>
+            <tr>
+                <td>CODIGO</td>
+                <td><input type="number" name="" id="" [(ngModel)]="empleado.codigo"></td>
+            </tr>
+            <tr>
+                <td>NOMBRE</td>
+                <td><input type="text" name="" id="" [(ngModel)]="empleado.nombre"></td>
+            </tr>
+            <tr>
+                <td>APELLIDO</td>
+                <td><input type="text" name="" id="" [(ngModel)]="empleado.apellido"></td>
+            </tr>
+            <tr>
+                <td>CORREO</td>
+                <td><input type="email" name="" id="" [(ngModel)]="empleado.correo"></td>
+            </tr>
+            <tr>
+                <td>PUESTO</td>
+                <td><input type="text" name="" id="" [(ngModel)]="empleado.puesto"></td>
+            </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <input type="button" value="Guardar" (click)="guardarUsuario()">
+                        <input type="button" value="Modificar" (click)="modificarProd()">
+                        <input type="button" value="Eliminar" (click)="eliminarProd()">
+                        <input type="button" value="Ver Lista" (click)="verLista();">
+                        <input type="button" value=" consultar" (click)="consultarProd();">
+                    </td>
+                </tr>
+
+        </table>
+
+        <br><br>
+
+        <table>
+            <tr>
+                <th>CODIGO</th>
+                <th>NOMBRE</th>
+                <th>APELLIDO</th>
+                <th>CORREO</th>
+                <th>PUESTO</th>
+            </tr>
+@for(usua of empleados; track usua.nombre){
+    <tr>
+                <td>{{usua.codigo}}</td>
+                <td>{{usua.nombre}}</td>
+                <td>{{usua.apellido}}</td>
+                <td>{{usua.correo}}</td>
+                <td>{{usua.puesto}}</td>
+    </tr>
+            }@empty {
+                        <span>No hay información que mostrar</span>
+                    }
+        </table>
+
+
+
+
+</div>

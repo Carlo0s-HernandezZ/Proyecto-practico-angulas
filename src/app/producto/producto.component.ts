@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { empty, EmptyError, from, isEmpty } from 'rxjs';
 import { ProductoService } from '../servicios/producto.service';
 
 @Component({
   selector: 'app-producto',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './producto.component.html',
   styleUrl: './producto.component.css'
 })
@@ -80,7 +81,7 @@ guardarProducto() {
     this.servicioProd.consultartodo().subscribe({
       next: (res) => {
         console.log("Productos consultados:", res);
-        this.productos = res.pro;
+        this.productos = res.prod;
       },
       error: (err) => {
         console.error("Error al consultar productos:", err);

@@ -51,29 +51,32 @@
 
         <br><br>
 
-        <table>
-            <tr>
-                <th>CODIGO</th>
-                <th>NOMBRE</th>
-                <th>DESCRIPCION</th>
-                <th>EXISTENCIA</th>
-                <th>PRECIO</th>
-                <th>FOTO</th>
-            </tr>
-@for(prod of productos; track prod.nombre){
+<table>
+  <thead>
     <tr>
-                <td>{{prod.codigo}}</td>
-                <td>{{prod.nombre}}</td>
-                <td>{{prod.descripcion}}</td>
-                <td>{{prod.existencia}}</td>
-                <td>{{prod.precio}}</td>
-                <td><img src={{prod.imgurl}} alt="" height="25%" width="25%"></td>
+      <th>CODIGO</th>
+      <th>NOMBRE</th>
+      <th>DESCRIPCION</th>
+      <th>EXISTENCIA</th>
+      <th>PRECIO</th>
+      <th>FOTO</th>
     </tr>
-            }@empty {
-                        <span>No hay información que mostrar</span>
-                    }
-        </table>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prod of productos">
+      <td>{{ prod.codigo }}</td>
+      <td>{{ prod.nombre }}</td>
+      <td>{{ prod.descripcion }}</td>
+      <td>{{ prod.existencia }}</td>
+      <td>{{ prod.precio }}</td>
+      <td><img [src]="prod.imgurl" alt="" height="25%" width="25%"></td>
+    </tr>
+  </tbody>
+</table>
 
+<div *ngIf="productos?.length === 0">
+  <span>No hay información que mostrar</span>
+</div>
 
 
 

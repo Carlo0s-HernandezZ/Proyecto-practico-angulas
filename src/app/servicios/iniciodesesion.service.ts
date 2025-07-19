@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Token } from '@angular/compiler';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -9,7 +8,9 @@ import { Router } from '@angular/router';
 export class IniciodesesionService {
 
 
-  private url = "http://localhost:3000/clientes/iniciodesesion";
+  private url = "http://localhost:3000/clientes/iniciodesesion"; 
+/*   private url = "http://172.16.100.80:3000/clientes/iniciodesesion";
+ */
   constructor(private http:HttpClient, private router:Router) { }
 
   login(usuario:object){
@@ -17,10 +18,8 @@ export class IniciodesesionService {
   }
 
   cerrarSesion(){
-
     //borrar una variable de localstorage
     //localStorage.removeItem("token");
-
     //borrar todas las variable de localstorage
     localStorage.clear();
     this.router.navigate(['/iniciosesion']);//validar la ruta Carlos no sea wey-------------------------------
@@ -42,9 +41,9 @@ return true;
     return localStorage.getItem("token");
   }
 
-  tuperfil(){
+/*   tuperfil(){
     //saber cual es el puest del empleado
-    //return localStorage.getItem("perfil");//guarda el puesto del empleado
+    return localStorage.getItem("perfil");//guarda el puesto del empleado
 
-  }
+  } */
 }

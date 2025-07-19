@@ -6,8 +6,9 @@ import { HttpClient } from '@angular/common/http';/* Para las peticiones del lad
 })
 export class ProductoService {
 
-  private url="http://localhost:3000/productos";
-
+  private url="http://localhost:3000/productos"; 
+/*       private url="http://172.16.100.80:3000/productos"; 
+ */
   constructor(private http:HttpClient) { 
 
   }
@@ -43,7 +44,7 @@ guardar(codigo:string,
  }//cierre de consulta
 
  eliminar(nombre:String){
-  return this.http.get<any>(this.url+"/borrar/"+nombre)
+  return this.http.delete<any>(this.url+"/borrar/"+nombre)
  }//cierre de eliminar
 
  modificar(producto:object) {

@@ -28,7 +28,11 @@ export class IniciosesionComponent {
         this.router.navigate(['/inicio']);
       },
       err=>{
-        alert(err);
+        if (err.error) {
+          alert(err.error);
+        } else{
+          alert ("Error al conectar al servidor");
+        }
       }
     );
   }
